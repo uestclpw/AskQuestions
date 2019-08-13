@@ -74,7 +74,7 @@ c 可以使用discard命令来取消事务，放弃事务块内的所有命令�
 a 首先通过applicationContext找出所有的Handler的实现类
 b 然后把Handler与各个事件关联起来
 c new一个线程，不断从Redis里面brpop（）出Key = Eventqueue，如果有，把value取出来，反序列化成一个EventModel，并传入对应的Handler处理。因为这个类实现了InitializingBean，一开始这个线程就会起来永久运行。
-## 七 实现了timeline模式的“推”和“拉”
+## 七 实现了“推”和“拉”两种模式来展示新鲜事
 当用户发布问题或者关注问题的时候，这个用户就产生了一个新鲜事。
 （1）首先会把新鲜事存入数据库
 定义一个Feed的Model，代表用户产生的新鲜事。
